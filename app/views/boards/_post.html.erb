@@ -1,0 +1,8 @@
+<div class="post">
+
+  <h4>Post by <%= post.author_name %></h4>
+  <% from_time = Time.now %>
+  <p>Posted <%= distance_of_time_in_words(post.created_at, from_time) %> later</p>
+
+  <p><%= post.body %></p>
+</div>

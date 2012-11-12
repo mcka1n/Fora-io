@@ -1,0 +1,12 @@
+<h1> All Boards </h1>
+
+<ul>
+ <% @boards.each do |board| %>
+
+  <li>
+   <%= link_to board.title, board_path(board) %>
+  </li>
+
+ <% end %>
+
+</ul>
