@@ -1,5 +1,7 @@
 class BoardsController < ApplicationController
-
+ 
+ before_filter :authenticate_user!
+ 
  def index
   @boards = Board.all
  end
