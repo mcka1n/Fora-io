@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
     @post = Post.new(params[:post])
     @post.board_id = board_id
+    @post.user_id = current_user.id
 
     @post.save
 

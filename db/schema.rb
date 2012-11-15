@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20121111051207) do
 
   create_table "boards", :force => true do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  :null => false
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20121111051207) do
 
   create_table "posts", :force => true do |t|
     t.integer  "board_id"
+    t.integer  "user_id"
     t.string   "author_name"
     t.text     "body"
     t.datetime "created_at",  :null => false

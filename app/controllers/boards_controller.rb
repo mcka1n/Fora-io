@@ -22,6 +22,7 @@ class BoardsController < ApplicationController
   def create
 	#raise params.inspect	# We use it to debug what's coming from the form (view)
   	@board = Board.new
+    @board.user_id = current_user.id
   	@board.title = params[:board][:title]
   	@board.description = params[:board][:description]
   	@board.save
