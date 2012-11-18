@@ -12,6 +12,16 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Rememberable
       t.datetime :remember_created_at
 
+
+      ## Fora's hack, adding more details
+      t.string :first_name
+      t.string :last_name
+      t.string :username
+      ## Location
+      t.string :country
+      t.string :state
+      t.string :city
+
       ## Trackable
       t.integer  :sign_in_count, :default => 0
       t.datetime :current_sign_in_at

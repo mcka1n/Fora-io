@@ -34,4 +34,7 @@ Fora::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  #Devise suggestion (mcka1n @ Nov 3, 2012 - 2:13 AM)
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

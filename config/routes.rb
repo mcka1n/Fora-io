@@ -1,5 +1,6 @@
 Fora::Application.routes.draw do
-  devise_for :users
+  #devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   #added by mckain | Nov 3, 2012 - 4:58 PM
   resources :dashboard
@@ -8,6 +9,10 @@ Fora::Application.routes.draw do
   resources :boards
   #added by edwin | Nov 11, 2012 - 11:10 AM
   resources :posts
+  #added by edwin | Nov 17, 2012 - 3:23 PM
+  resources :after_register
+  #added by edwin | Nov 17, 2012 - 6:34 PM
+  resources :follows
 
 
 

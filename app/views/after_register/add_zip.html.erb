@@ -1,0 +1,25 @@
+<h2> Thanks for signing up </h2>
+
+
+<%= form_for @user, :url => wizard_path, :method => :put do |f| %>
+	<p> Details </p>
+	<%= f.text_field :first_name, :placeholder => 'First Name' %> <br>
+	<%= f.text_field :last_name, :placeholder => 'Last Name' %> <br>
+	<%= f.text_field :username, :placeholder => 'Username' %> <br>
+	
+
+	<p> Choose your location </p>
+	<%= f.text_field :country, :placeholder => 'Country' %> <br>
+	<%= f.text_field :state, :placeholder => 'State' %> <br>
+	<%= f.text_field :city, :placeholder => 'City' %> <br>
+
+
+	<p> Choose Topics </p>
+
+	<%= f.submit 'Next' %>
+
+<% end %>
+
+
+
+<%= link_to 'skip', next_wizard_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121111051207) do
+ActiveRecord::Schema.define(:version => 20121118003210) do
 
   create_table "boards", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(:version => 20121111051207) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "follows", :force => true do |t|
+    t.integer  "board_id"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|
@@ -43,6 +51,12 @@ ActiveRecord::Schema.define(:version => 20121111051207) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
