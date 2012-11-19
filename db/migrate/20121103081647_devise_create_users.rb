@@ -14,13 +14,13 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
 
       ## Fora's hack, adding more details
-      t.string :first_name
-      t.string :last_name
-      t.string :username
+      ##t.string :first_name
+      ##t.string :last_name
+      ###t.string :username
       ## Location
-      t.string :country
-      t.string :state
-      t.string :city
+      ##t.string :country
+      ##t.string :state
+      ##t.string :city
 
       ## Trackable
       t.integer  :sign_in_count, :default => 0
