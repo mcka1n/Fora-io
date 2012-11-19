@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bootstrap 101 Template</title>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<![endif]-->
+<!-- Stylesheet -->
+<link href="css/master.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" href="markitup/skins/simple/style.css">
+<link rel="stylesheet" type="text/css" href="markitup/sets/default/style.css">
+<!-- javascript -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="markitup/jquery.markitup.js"></script>
+<script type="text/javascript" src="markitup/sets/default/set.js"></script>
+
+</head>
+<body>
+
+	<header>
+		<!-- logo -->
+		<ul>
+			<li class="logo"><a href="#"><img src="images/blank.gif" alt="Fora.io" height="50" /></a></li>
+			<li class="createRoom"><a href="#" class="btn btn-big">Create Room</a></li>
+			<li class="searchTopic"><input type="text" class="textInput" placeholder="Search topic by #hashtag" /></li>
+		</ul>
+
+		<nav>
+			<ul>
+				<li><a href="#">About</a></li>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="#">Feedback</a></li>
+			</ul>
+		</nav>
+
+	</header>
+
+	<section class="leftSideBar">
+
+		<!-- profile -->
+		<div class="profile">
+			<figure>
+				<img src="images/thumb/profile_01.jpg" alt="" />
+			</figure>
+			<ul>
+				<li><h5>designblooz</h5></li>
+				<li><a href="#">My account</a></il>
+				<li><a href="#">Log out</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+
+		<!-- dashboard/following -->
+		<nav>
+			<ul>
+				<li class="dashboard"><a href="#">Dashboard</a></li>
+				<li><h5>Following</h5>
+					<ul>
+						<li class="active"><a href="#">#apple</a>
+							<ul>
+								<li><a href="#">-#ios</a></li>
+								<li><a href="#">-#iphone</a></li>
+								<li><a href="#" class="addSubtopic">+ Add sub topic</a></li>
+							</ul>
+						</li>
+						<li><a href="#">#samsung</a></li>
+						<li><a href="#">#technology</a></li>
+						<li><a href="#">#ycombinator</a></li>
+						<li><a href="#">#startup-nyc</a></li>
+						<li><a href="#">#startup-silicon-valley</a></li>
+					</ul>
+				</li>
+				
+			</ul>
+		</nav>
+
+	</section>
+
+	<section class="rightFluid">
+
+		<div class="top">
+			<!-- topic info -->
+			<div class="topicInfo">
+				<ul>
+					<li><h3>#apple</h3></li>
+					<li><h5>400 Members</h5></li>
+					<li class="follow"><a href="#" class="btn btn-white">Follow</a></li>
+				</ul>
+			</div>
+			<!-- new thread -->
+			<div class="newThread">
+				<a href="#" class="btn btn-big btn-white">+ New Thread</a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="threadSideBar">
+			<!-- right side bar -->
+			<div class="rightSideBar">
+				<div class="sideContent">
+					<h4>Topic Suggestions</h4>
+					<ul>
+						<li><a href="#">#ios</a></li>
+						<li><a href="#">#iphone</a></li>
+						<li><a href="#">#ipad</a></li>
+						<li><a href="#">#macbook</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- content -->
+			<div class="content">
+
+				<!-- thread detail -->
+				<div class="threadDetail">
+					<h3>What do you think about a Social Web OS?</h3>
+					<h5>Created by: designblooz</h5>
+
+					<div class="description">
+						Hello HN,<br />
+						We've just been turned down by YCombinator (2 visits to our demo & video) and because they don't give feedback I'm here to ask you guys what do you think about our project:<br /><br />
+
+						weeZeel is a Social Web OS. It's a website written in HTML5 and JavaScript (using jQuery) that takes the concept of a traditional Operating System to the cloud.<br /><br />
+
+						We have created a web desktop for everyone to use as their computer. They can edit documents, watch movies, play games. using our apps or any other app available in weeZeel Store, where anyone can sell an app developed using our API, with the feature of being 100% social. All these apps have the ability to work on real time thanks to websockets.<br /><br />
+
+						And because weeZeel is social, you can share all the files and folders you want with your contacts with one single click and you can interact with them in any app.<br /><br />
+
+						If you want to try our demo (still work to be done) just use this url: http://www.weezeel.com/demo.php
+					</div>
+				</div>
+
+				<div class="postEditor">
+					<textarea id="markItUp" cols="80" rows="10"></textarea>	
+					<button class="btn floatR">Submit</button>			
+				</div>
+
+				<div class="comment">
+					<ul>
+						<li>
+							<div class="commentTop">
+								<ul>
+									<li><a href="#">designblooz</a></li>
+									<li>1 hour ago</li>
+									<li class="reply"><a href="#">Reply</a></li>
+								</ul>
+								<div class="clear"></div>
+							</div>
+							<div class="cont">
+								-Who's your target audience? -Why would someone want to use weeZeel?
+								I'm having a hard time trying to understand the benefit of something like weeZeel. It may be that I'm just not your target audience.
+								-Who's your target audience? -Why would someone want to use weeZeel?
+								I'm having a hard time trying to understand the benefit of something like weeZeel. It may be that I'm just not your target audience.
+								-Who's your target audience? -Why would someone want to use weeZeel?
+								I'm having a hard time trying to understand the benefit of something like weeZeel. It may be that I'm just not your target audience.
+							</div>
+						</li>
+
+						<li>
+							<div class="commentTop">
+								<ul>
+									<li><a href="#">designblooz</a></li>
+									<li>1 hour ago</li>
+									<li class="reply"><a href="#">Reply</a></li>
+								</ul>
+								<div class="clear"></div>
+							</div>
+							<div class="cont">
+								-Who's your target audience? -Why would someone want to use weeZeel?
+								I'm having a hard time trying to understand the benefit of something like weeZeel. It may be that I'm just not your target audience.
+								-Who's your target audience? -Why would someone want to use weeZeel?
+								I'm having a hard time trying to understand the benefit of something like weeZeel. It may be that I'm just not your target audience.
+								-Who's your target audience? -Why would someone want to use weeZeel?
+								I'm having a hard time trying to understand the benefit of something like weeZeel. It may be that I'm just not your target audience.
+							</div>
+						</li>
+
+
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+<script type="text/javascript">
+$(function() {
+	// Add markItUp! to your textarea in one line
+	// $('textarea').markItUp( { Settings }, { OptionalExtraSettings } );
+	$('#markItUp').markItUp(myMarkdownSettings);
+
+
+
+	// You can add content from anywhere in your page
+	// $.markItUp( { Settings } );	
+	$('.add').click(function() {
+ 		$('#markItUp').markItUp('insert',
+			{ 	openWith:'<opening tag>',
+				closeWith:'<\/closing tag>',
+				placeHolder:"New content"
+			}
+		);
+ 		return false;
+	});
+	
+	// And you can add/remove markItUp! whenever you want
+	// $(textarea).markItUpRemove();
+	$('.toggle').click(function() {
+		if ($("#markItUp.markItUpEditor").length === 1) {
+ 			$("#markItUp").markItUp('remove');
+			$("span", this).text("get markItUp! back");
+		} else {
+			$('#markItUp').markItUp(mySettings);
+			$("span", this).text("remove markItUp!");
+		}
+ 		return false;
+	});
+});
+</script>
+</body>
+</html>

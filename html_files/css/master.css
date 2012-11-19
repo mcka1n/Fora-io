@@ -1,0 +1,506 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+input:focus {
+  outline: none; }
+
+/** @ Font Face **/
+@font-face {
+  font-family: 'MuseoSlab';
+  src: url("font/museo_slab-webfont.eot");
+  src: url("font/museo_slab-webfont.eot?#iefix") format("embedded-opentype"), url("font/museo_slab-webfont.woff") format("woff"), url("font/museo_slab-webfont.ttf") format("truetype"), url("font/museo_slab-webfont.svg#MuseoSlab500") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+html {
+  height: 100%; }
+
+body {
+  background: url(../images/leftBg.jpg) repeat-y;
+  font-family: "Helvetica", "Arial", sans-serif;
+  height: 100%;
+  color: #333333; }
+
+a {
+  color: #49868e;
+  text-decoration: none;
+  font-family: "MuseoSlab"; }
+  a:hover {
+    color: #1f4449; }
+
+/** heading **/
+h1, h2, h3, h4, h5 {
+  font-family: "MuseoSlab"; }
+
+h1 {
+  font-size: 28px; }
+
+h2 {
+  font-size: 20px; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+/** input **/
+.textInput {
+  -moz-box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: none;
+  padding: 5px;
+  font-size: 12px;
+  font-family: "MuseoSlab";
+  color: #333333; }
+
+/** header **/
+header {
+  background: url(../images/topBg.png) repeat-x;
+  height: 54px;
+  width: 100%;
+  min-width: 960px;
+  position: absolute;
+  left: 0;
+  top: 0; }
+  header ul li {
+    float: left;
+    background: url(../images/line_02.gif) repeat-y right bottom; }
+  header .logo {
+    width: 200px;
+    position: relative; }
+    header .logo a {
+      background: url(../images/logo.png) no-repeat center center;
+      background-size: 149px 50px;
+      display: block;
+      height: 50px;
+      text-align: center;
+      position: relative; }
+  header .createRoom {
+    padding: 5px;
+    height: 40px; }
+  header .searchTopic {
+    background: none;
+    padding: 7px 10px 0 8px;
+    height: 43px; }
+    header .searchTopic .textInput {
+      font-size: 13px;
+      padding: 8px;
+      width: 308px; }
+  header nav {
+    float: right;
+    padding-right: 10px; }
+    header nav ul li {
+      background: none;
+      float: left;
+      padding: 0 10px;
+      line-height: 50px;
+      font-size: 12px; }
+
+/** content **/
+.rightFluid {
+  padding: 75px 20px 0 0;
+  min-width: 760px;
+  margin-left: 200px; }
+  .rightFluid .top {
+    background: url(../images/dot_01.gif) repeat-x 10px 20px;
+    position: relative;
+    z-index: 2; }
+
+.content {
+  background: url(../images/dot_01.gif) repeat-y right top;
+  padding: 45px 20px 40px 0;
+  margin-right: 200px;
+  min-height: 100%; }
+
+.topicInfo {
+  background-color: #282828;
+  border-radius: 0px 5px 5px 0px;
+  -moz-border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  padding: 0px 0px 0px 15px;
+  float: left; }
+  .topicInfo ul li {
+    background: url(../images/line_03.gif) repeat-y right top;
+    float: left;
+    height: 35px;
+    padding: 5px 15px 0 15px;
+    color: #fff; }
+    .topicInfo ul li h3 {
+      line-height: 28px; }
+    .topicInfo ul li h5 {
+      line-height: 32px;
+      font-size: 12px; }
+  .topicInfo ul li.follow {
+    background: none;
+    padding: 5px 8px 0 8px; }
+
+.newThread {
+  float: right; }
+
+/** login **/
+.signin {
+  padding: 15px 15px 0 15px; }
+  .signin h5 {
+    padding-bottom: 4px;
+    border-bottom: 1px solid #2b585e;
+    margin-bottom: 10px; }
+  .signin .textInput {
+    width: 155px; }
+  .signin .btn {
+    float: none;
+    width: 165px;
+    border: none;
+    text-align: center; }
+
+/** dashboard **/
+.dashboardBox {
+  padding: 50px 0px 0 0; }
+  .dashboardBox .trendingNewly {
+    background: url(../images/dashboard_bg.gif);
+    padding: 20px 0 0 0; }
+    .dashboardBox .trendingNewly .padding {
+      padding: 0px 20px 10px 20px; }
+    .dashboardBox .trendingNewly .bottomBg {
+      background: url(../images/dashboard_top_bottom.gif) repeat-x;
+      height: 10px; }
+
+/** thread list detail **/
+.threadDetail {
+  padding: 0 0 0 35px; }
+  .threadDetail h3 {
+    border-bottom: 3px solid #d1d7d8;
+    float: left;
+    padding: 0 0 2px 0; }
+  .threadDetail h5 {
+    clear: left;
+    font-family: arial;
+    color: #888888;
+    font-size: 12px;
+    padding-top: 4px; }
+  .threadDetail .description {
+    font-size: 13px;
+    padding: 15px 0 0 0;
+    line-height: 18px; }
+
+/** post **/
+.postEditor {
+  padding: 40px 30px 20px 30px; }
+  .postEditor button {
+    position: relative;
+    margin: 0 -12px 0 0; }
+
+.comment {
+  padding: 45px 20px 0 20px;
+  font-size: 12px; }
+  .comment ul {
+    border-top: 1px solid #dbdbdb; }
+    .comment ul li {
+      border-bottom: 1px solid #dbdbdb;
+      padding: 15px; }
+    .comment ul ul {
+      border-top: none;
+      padding-bottom: 25px; }
+      .comment ul ul li {
+        border-bottom: none;
+        float: left;
+        padding: 0 10px 0 0;
+        color: #888888; }
+      .comment ul ul .reply {
+        float: right; }
+  .comment .cont {
+    line-height: 18px; }
+
+/** sidebar **/
+.leftSideBar {
+  width: 200px;
+  float: left;
+  padding: 20px 0 0 0;
+  color: #fff;
+  position: absolute;
+  left: 0px;
+  top: 50px; }
+  .leftSideBar a {
+    font-size: 12px;
+    color: #739094; }
+    .leftSideBar a:hover {
+      color: #fff; }
+  .leftSideBar .profile {
+    padding: 0 0 0 15px; }
+    .leftSideBar .profile a {
+      font-family: Arial, sans-serif; }
+    .leftSideBar .profile figure {
+      float: left;
+      padding-right: 10px; }
+    .leftSideBar .profile img {
+      border: 3px solid #fff;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px; }
+  .leftSideBar nav {
+    background: url(../images/line_01.gif) repeat-x top left;
+    margin: 15px 0 0 0; }
+    .leftSideBar nav a {
+      display: block;
+      padding: 6px 10px; }
+    .leftSideBar nav a.addSubtopic {
+      color: #49868e;
+      font-size: 10px; }
+      .leftSideBar nav a.addSubtopic:hover {
+        color: #fff; }
+    .leftSideBar nav .dashboard a {
+      padding: 15px 10px; }
+    .leftSideBar nav ul li {
+      background: url(../images/line_01.gif) repeat-x bottom left;
+      color: #b6b6b6;
+      font-size: 12px;
+      font-family: "MuseoSlab"; }
+    .leftSideBar nav h5 {
+      padding: 10px; }
+    .leftSideBar nav ul li.active a {
+      background-color: #091112; }
+    .leftSideBar nav ul li.active ul {
+      background-color: #152224;
+      margin: 0 15px 0 10px;
+      padding-bottom: 5px;
+      border-radius: 0px 0px 5px 5px;
+      -moz-border-radius: 0px 0px 5px 5px;
+      -webkit-border-radius: 0px 0px 5px 5px; }
+    .leftSideBar nav ul li.active ul li a {
+      background: none;
+      padding: 5px 0 5px 15px; }
+    .leftSideBar nav ul li ul li {
+      background: none; }
+      .leftSideBar nav ul li ul li a {
+        padding: 6px 15px; }
+
+.threadSideBar {
+  max-width: 1250px;
+  position: relative;
+  margin-top: -20px;
+  min-height: 100%;
+  z-index: 1; }
+
+.rightSideBar {
+  float: right;
+  width: 180px;
+  position: relative;
+  min-height: 100%; }
+  .rightSideBar .sideContent {
+    position: absolute;
+    top: 45px;
+    left: 0px; }
+    .rightSideBar .sideContent ul li a {
+      font-size: 12px;
+      line-height: 20px; }
+    .rightSideBar .sideContent h4 {
+      padding-bottom: 5px; }
+
+/** thread list **/
+.threadList li {
+  padding: 0 0 5px 0; }
+  .threadList li a {
+    display: block;
+    font-size: 11px;
+    color: #888888;
+    border: 1px solid #e1e1e1;
+    padding: 10px 15px 10px 25px;
+    background-repeat: repeat-x;
+    background: #e1e1e1;
+    background: -moz-linear-gradient(top, #f9f9f9 2%, #e1e1e1 99%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, #f9f9f9), color-stop(99%, #e1e1e1));
+    background: -webkit-linear-gradient(top, #f9f9f9 2%, #e1e1e1 99%);
+    background: -o-linear-gradient(top, #f9f9f9 2%, #e1e1e1 99%);
+    background: -ms-linear-gradient(top, #f9f9f9 2%, #e1e1e1 99%);
+    background: linear-gradient(to bottom, #f9f9f9 2%, #e1e1e1 99%);
+    border-radius: 0px 5px 5px 0px;
+    -moz-border-radius: 0px 5px 5px 0px;
+    -webkit-border-radius: 0px 5px 5px 0px; }
+    .threadList li a span {
+      display: block;
+      font-family: arial;
+      line-height: 18px; }
+    .threadList li a .id {
+      background-color: #333333;
+      text-align: center;
+      float: left;
+      padding: 4px 10px;
+      line-height: 18px;
+      margin: 5px 10px 0 0;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px; }
+    .threadList li a .left {
+      float: left; }
+    .threadList li a .right {
+      float: right; }
+    .threadList li a .title {
+      font-size: 14px;
+      font-family: "MuseoSlab";
+      color: #49868e; }
+    .threadList li a:hover {
+      border: 1px solid #bbb;
+      background-repeat: repeat-x;
+      background-color: #e1e1e1;
+      background-position: 0 -35px;
+      color: #333333;
+      -moz-box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+      -webkit-box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+      box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+      -webkit-transition: background-position 0.2s linear;
+      -moz-transition: background-position 0.2s linear;
+      -o-transition: background-position 0.2s linear;
+      transition: background-position 0.2s linear; }
+      .threadList li a:hover .title {
+        color: #333333; }
+      .threadList li a:hover .id {
+        color: #fff; }
+
+/** pagination **/
+.pagination {
+  text-align: center;
+  padding-top: 20px; }
+  .pagination li {
+    display: inline; }
+    .pagination li a {
+      font-family: "MuseoSlab";
+      background-color: #fff;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border: 1px solid #ccc; }
+      .pagination li a:hover {
+        border: 1px solid #aaa; }
+  .pagination li.active a {
+    background-color: #49868e;
+    color: #fff; }
+
+/** buttons **/
+.btn {
+  display: block;
+  background: #216771;
+  background: -moz-linear-gradient(top, #4fa2ae 2%, #216771 99%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, #4fa2ae), color-stop(99%, #216771));
+  background: -webkit-linear-gradient(top, #4fa2ae 2%, #216771 99%);
+  background: -o-linear-gradient(top, #4fa2ae 2%, #216771 99%);
+  background: -ms-linear-gradient(top, #4fa2ae 2%, #216771 99%);
+  background: linear-gradient(to bottom, #4fa2ae 2%, #216771 99%);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: inset 1px 1px 0px rgba(152, 201, 208, 0.6);
+  -webkit-box-shadow: inset 1px 1px 0px rgba(152, 201, 208, 0.6);
+  box-shadow: inset 1px 1px 0px rgba(152, 201, 208, 0.6);
+  background-repeat: repeat-x;
+  color: #e0eef0;
+  font-size: 11px;
+  padding: 8px;
+  border: 1px solid #5d9ca6;
+  font-family: "MuseoSlab";
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  float: left; }
+  .btn:hover {
+    background-color: #216771;
+    background-position: 0 -15px;
+    -moz-box-shadow: inset 1px 1px 0px rgba(152, 201, 208, 0.5);
+    -webkit-box-shadow: inset 1px 1px 0px rgba(152, 201, 208, 0.5);
+    box-shadow: inset 1px 1px 0px rgba(152, 201, 208, 0.5);
+    -webkit-transition: background-position 0.2s linear;
+    -moz-transition: background-position 0.2s linear;
+    -o-transition: background-position 0.2s linear;
+    transition: background-position 0.2s linear;
+    color: #fff; }
+  .btn:active {
+    -moz-box-shadow: inset 0px 1px 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0px 1px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0px 1px 6px rgba(0, 0, 0, 0.3); }
+
+.btn-white {
+  background: #dddddd;
+  background: -moz-linear-gradient(top, white 2%, #dddddd 99%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, white), color-stop(99%, #dddddd));
+  background: -webkit-linear-gradient(top, white 2%, #dddddd 99%);
+  background: -o-linear-gradient(top, white 2%, #dddddd 99%);
+  background: -ms-linear-gradient(top, white 2%, #dddddd 99%);
+  background: linear-gradient(to bottom, white 2%, #dddddd 99%);
+  -moz-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0);
+  box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0);
+  border: 1px solid #ccc;
+  color: #49868e;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
+  .btn-white:hover {
+    background-repeat: repeat-x;
+    background-color: #ddd;
+    background-position: 0 -15px;
+    -moz-box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+    -webkit-box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+    box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+    color: #49868e; }
+
+.btn-big {
+  font-size: 13px;
+  padding: 10px; }
+
+/** common **/
+.clear {
+  clear: both; }
+
+.floatL {
+  float: left; }
+
+.floatR {
+  float: right; }
