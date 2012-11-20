@@ -2,7 +2,7 @@ Fora.io
 ========
 Forums + Conversation Platform around #hashtag
 
-Development description
+Development Model
 ========================
 
 User
