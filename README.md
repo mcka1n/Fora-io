@@ -39,8 +39,13 @@ Thread
       - Title
       - Description
     - Link URL
+      - Fetch title 
     - Image
-    - Video
+      - Image upload from local
+      - Dropbox implementation (Future)
+    - Video (YouTube, Vimeo)
+      - Fetch title 
+      - Fetch thumbnail 
   - Replies
     - Username
     - Posted date
