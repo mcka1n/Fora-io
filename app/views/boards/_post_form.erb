@@ -1,0 +1,15 @@
+<h3>New Thread</h3>
+<a href="#" class="newThreadClose">X</a>
+<%= form_for @post do |f| %>
+  <%= f.hidden_field :board_id %>
+  <p>
+    <%= f.hidden_field :author_name, :value => current_user.username %>
+  </p>
+  <p>
+    <div class="postEditor">
+       <%= f.text_area :body, :id => "markItUp" %>
+      <button class="btn floatR">Submit</button>      
+    </div>    
+  </p>
+<% end %>
+

@@ -1,14 +1,8 @@
-<h1><%= @board.title %></h1>
-<p><%= @board.description %></p>
-
-<%= link_to "edit", edit_board_path(@board) %>
-<%= link_to "delete", board_path(@board), :method => :delete, :confirm => "Really? Do you want to delete the board?"
- %>
-
-<%= link_to "<< Back to boards List", boards_path %>
+<p class="topicDescription"><%= @board.description %></p>
 
 
-<%= render :partial => 'post_form' %>
+<!--<%= link_to "<< Back to boards List", boards_path %>-->
+	
 
-<h3>Posts (<%= @board.posts.count %>)</h3>
+<h3 style="padding:15px">Posts (<%= @board.posts.count %>)</h3>
 <%= render :partial => 'post', :collection => @board.posts %>

@@ -53,4 +53,14 @@ class BoardsController < ApplicationController
     redirect_to board_path(@board)
   end 
 
+  def list
+    @boardsList = Board.all
+    render 'list'
+  end
+
+  def topic_info
+    @topic = Board.find(params[:id])
+  end
+
+
 end

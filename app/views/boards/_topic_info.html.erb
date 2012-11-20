@@ -1,0 +1,14 @@
+<div class="topicInfo">
+	<ul>
+	  <li><h3>#<%= @board.title %></h3></li>
+	  <li><h5>400 Members</h5></li>
+	  <li class="edit_delete"><%= link_to "Edit", edit_board_path(@board), :class => "btn" %><%= link_to "Delete", board_path(@board), :class => "btn", :method => :delete, :confirm => "Really? Do you want to delete the board?"
+ %></li>
+	  <li class="follow"><a href="#" class="btn btn-white">Follow</a></li>
+	</ul>
+</div>	
+<!-- new thread -->
+<div class="newThread">
+	<button id="newThreadBtn" class="btn btn-big btn-white">+ New Thread</button>
+</div>
+<div class="clear"></div>

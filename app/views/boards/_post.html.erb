@@ -1,8 +1,11 @@
-<div class="post">
+<ul class="threadList">
+	<li>
+		<a href="page.html">
+			<span class="id"><%= post.id %></span>
+			<span class="left"><span class="title"><%= post.body %></span><span class="author"><strong>Created by:</strong> <%= post.author_name %></span></span>
+			<span class="right"><span><strong>Replies:</strong> 10</span><span><strong>Last update:</strong> designblooz - <% from_time = Time.now %><%= distance_of_time_in_words(post.created_at, from_time) %> ago</span></span>
+			<span class="clear"></span>
+		</a>
+	</li>
+</ul>
 
-  <h4>Post by <%= post.author_name %></h4>
-  <% from_time = Time.now %>
-  <p>Posted <%= distance_of_time_in_words(post.created_at, from_time) %> later</p>
-
-  <p><%= post.body %></p>
-</div>
