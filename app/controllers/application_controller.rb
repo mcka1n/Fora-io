@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     authenticate_or_request_with_http_basic do |user_name, password|
-    # Change these to username and password required
-    user_name == "fora" && password == "gobeta"
+      # Change these to username and password required
+      user_name == "fora" && password == "gobeta"
+    end
   end
 
   def sidebar
