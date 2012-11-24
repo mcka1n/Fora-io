@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   before_filter :sidebar
 
   def authenticate
-    http_basic_authenticate_with :name => "fora", :password => "gobeta4", :except => :index
+    authenticate_or_request_with_http_basic do |user_name, password|
+    # Change these to username and password required
+    user_name == "fora" && password == "gobeta"
   end
 
   def sidebar
