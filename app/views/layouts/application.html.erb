@@ -61,7 +61,43 @@
     </nav>      
                 
       <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+    <div class="signin">
+      <h5>Sign In</h5>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <%= f.email_field :email, :class => "textInput", :placeholder => "E-mail" %>
+
+        <%= f.password_field :password, :class => "textInput", :placeholder => "Password" %>
+
+        <% if devise_mapping.rememberable? -%>
+          <div style="font-size:12px;padding:5px 0 5px 0;line-height:20px;color:#739094;font-family:'MuseoSlab';">
+            <%= f.check_box :remember_me %> <%= f.label :remember_me %> <br />
+          </div>
+        <% end -%>
+
+        <%= f.submit "Sign in", :class => "btn btn-white" %>
+
+        <p style="padding-top:5px;"><%= render "devise/shared/links" %> </p>
+
+      <% end %>      
+      <div class="clear" style="height:40px;"></div>
+
+      <h5>Are you new?</h5>
+
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <%= f.email_field :email, :class => "textInput", :placeholder => "E-mail" %>
+
+        <%= f.password_field :password, :class => "textInput", :placeholder => "Password" %>
+
+        <%= f.password_field :password_confirmation, :class => "textInput", :placeholder => "Confirm Password" %>
+
+        <div><%= f.submit "Sign up", :class => "btn btn-white" %></div>
+      <% end %>
+
+    </div>
+
+     
       <% end %>
 
 
@@ -140,7 +176,7 @@ $(function() {
     $('#markItUp').markItUp('insert',
       {   openWith:'<opening tag>',
         closeWith:'<\/closing tag>',
-        placeHolder:"New content"
+        :placeholder"New content"
       }
     );
     return false;
