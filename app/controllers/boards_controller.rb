@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
   	@board = Board.find(params[:id])
 
   	@post = Post.new
-	@post.board_id = @board.id
+	  @post.board_id = @board.id
 
   end
 
