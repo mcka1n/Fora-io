@@ -3,3 +3,8 @@
 
 <!--<%= link_to "<< Back to posts List", boards_path %>-->
 
+<h3 style="padding:15px">Comments (<%= @post.comments.count %>)</h3>
+<%= render :partial => 'comment', :collection => @post.comments %>
+
+
+<%= render 'comment_form' %>

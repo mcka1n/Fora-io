@@ -1,0 +1,13 @@
+<h3>New Comment On Post</h3>
+
+
+<a href="#" class="newThreadClose">X</a>
+<%= form_for @comment do |f| %>
+  <%= f.hidden_field :post_id %>
+  <p>
+    <div class="postEditor">
+       <%= f.text_area :body, :id => "markItUp" %>
+      <button class="btn floatR">Submit</button>      
+    </div>    
+  </p>
+<% end %>

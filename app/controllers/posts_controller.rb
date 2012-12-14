@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   def create
+    
     board_id = params[:post].delete(:board_id)
 
     @post = Post.new(params[:post])
@@ -8,13 +9,15 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     @post.save
-
+    
     redirect_to board_path(@post.board)
   end
 
   def show
   	@post = Post.find(params[:id])
   	
+    @comment = Comment.new
+    @comment.post_id = @post.id
   end
 
 

@@ -1,0 +1,18 @@
+<ul class="threadList">
+	<li>
+		
+    <span>
+    	<%= User.find(comment.user_id).username %> 
+    	<strong>wrote :</strong> 
+    	~ <% from_time = Time.now %><%= distance_of_time_in_words(comment.created_at, from_time) %> ago
+    </span>
+    <br>
+	<span class="left"><span class="title"><%= comment.body %></span><span class="author"><strong>
+			
+	
+	<span class="clear"></span>
+
+
+	</li>
+</ul>
+

@@ -13,7 +13,8 @@ Fora::Application.routes.draw do
   resources :after_register
   #added by edwin | Nov 17, 2012 - 6:34 PM
   resources :follows
-
+  #added by edwin | Dec 12, 2012 - 11:12 PM
+  resources :comments
 
 
   # The priority is based upon order of creation:
