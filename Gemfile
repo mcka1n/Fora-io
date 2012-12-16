@@ -9,6 +9,7 @@ gem 'rails', '3.2.8'
 gem 'devise'
 gem 'wicked'
 gem 'gravtastic'
+gem 'thumbs_up'
 
 # for test and development
 group :development, :test do

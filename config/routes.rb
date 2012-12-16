@@ -15,6 +15,12 @@ Fora::Application.routes.draw do
   resources :follows
   #added by edwin | Dec 12, 2012 - 11:12 PM
   resources :comments
+  #added by edwin | Dec 16, 2012 - 12:34 AM
+  resources :posts do
+    member do
+      post :vote_up
+    end
+  end
 
 
   # The priority is based upon order of creation:

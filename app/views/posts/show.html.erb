@@ -1,5 +1,6 @@
 <p class="topicDescription"><%= @post.body %></p>
-
+Total votes = # <%= @post.votes_for %> ||
+<%= link_to('vote + UP', vote_up_post_path(@post), :method => :post) %> 
 
 <!--<%= link_to "<< Back to posts List", boards_path %>-->
 

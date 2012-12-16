@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   gravtastic :email
+
+  acts_as_voter
 end
