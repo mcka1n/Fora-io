@@ -6,7 +6,8 @@
     <%= f.hidden_field :author_name, :value => current_user.username %>
   </p>
   <p>
-    <div class="postEditor">
+    <div class="postEditor" style="background-color:#eee;">
+       <%= f.text_field :title, :class => "textInput", :placeholder => "Title" %>
        <%= f.text_area :body, :id => "markItUp" %>
       <button class="btn floatR">Submit</button>      
     </div>    

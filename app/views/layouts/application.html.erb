@@ -105,7 +105,7 @@
 
   <section class="rightFluid <% if controller?("dashboard") && action?("index", "show") %> dashboardBox<% end %>">
 
-    <% if controller?("boards") && action?("show") %>
+    <% if (controller?("boards") && action?("show")) || (controller?("posts") && action?("show")) %>
     <div class="top">
       <!-- topic info -->
       
@@ -153,7 +153,7 @@
 
   </section>      
 
-<% if controller?("boards") && action?("show") %>
+<% if (controller?("boards") && action?("show")) || (controller?("posts") && action?("show")) %>
 
   <div class="newThreadContent" style="display:none;">
     <div class="newThreadBox" style="display:none;">
@@ -176,7 +176,7 @@ $(function() {
     $('#markItUp').markItUp('insert',
       {   openWith:'<opening tag>',
         closeWith:'<\/closing tag>',
-        :placeholder"New content"
+        placeholder: "New content"
       }
     );
     return false;
@@ -185,7 +185,7 @@ $(function() {
   // And you can add/remove markItUp! whenever you want
   // $(textarea).markItUpRemove();
   $('.toggle').click(function() {
-    if ($("#markItUp.markItUpEditor").length === 1) {
+    if ($("#markItUp .markItUpEditor").length === 1) {
       $("#markItUp").markItUp('remove');
       $("span", this).text("get markItUp! back");
     } else {

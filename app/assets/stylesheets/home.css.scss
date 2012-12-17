@@ -289,10 +289,10 @@ header {
 }
 
 .newThreadBox {
-	background-color:#fff;
+	background-color:#eee;
 	position:absolute;
 	width:600px;
-	height:230px;
+	height:280px;
 	left:50%;
 	top:50%;
 	margin:-200px 0 0 -300px;
@@ -305,12 +305,22 @@ header {
 		padding:20px 30px 0px 30px;
 	}
 
+	.textInput {
+		padding:10px;
+		width:96%;
+		margin-bottom:15px;
+		@include shadow(0px 0px 0px rgba(0, 0, 0, 0));
+		border:1px solid #ccc;
+	}
+
 	.postEditor {
 		padding:20px 30px 20px 30px;
 	}
 
 	.markItUpEditor {
 		width: 98%;
+		@include rounded;
+		border:1px solid #ccc;
 	}
 
 	.postEditor button {
@@ -374,7 +384,7 @@ header {
 
 /** thread list detail **/
 .threadDetail {
-	padding:0 0 0 35px;
+	padding:20px 0 0 35px;
 
 	h3 {
 		border-bottom:3px solid #d1d7d8;
@@ -572,29 +582,34 @@ header {
 
 /** thread list **/
 .threadList {
+	li:first-child {
+		@include rounded(0px 5px 0px 0px);
+		border-top:1px solid #e1e1e1;
+	}
+
+	li:last-child {
+		@include rounded(0px 0px 5px 0px);
+	}
+
 	li {
 		padding:0 0 5px 0;
-		a {
+		border-left:1px solid #e1e1e1;		
+		border-right:1px solid #e1e1e1;		
+		border-bottom:1px solid #e1e1e1;		
+		@include gradient(#f9f9f9, #f0f0f0);
+			
+		a.postLink {
 			display:block;
 			font-size:11px;
 			color:$light-color;
-			border:1px solid #e1e1e1;
 			padding:10px 15px 10px 25px;			
 			background-repeat:repeat-x;
-			@include gradient(#f9f9f9, #e1e1e1);
-			@include rounded(0px 5px 5px 0px);
+			margin-left:27px;
+			height:35px;
+
 
 			span { display:block; font-family:arial; line-height:18px; }
 
-			.id {
-				background-color:$dark-color;
-				text-align:center;
-				float:left;
-				padding:4px 10px;
-				line-height:18px;
-				margin:5px 10px 0 0;
-				@include rounded;
-			}
 
 			.left {
 				float:left;
@@ -611,26 +626,62 @@ header {
 			}
 
 			&:hover {
-				border:1px solid #bbb;
-				background-repeat:repeat-x;
-				background-color:#e1e1e1;
-				background-position:0 -35px;
-				color:$dark-color;
-				@include shadow(inset 1px 1px 0px rgba(255, 255, 255, 0.8));
-				@include transition;
+
 
 				.title {
 					color: $dark-color;
 				}
 
-				.id {
+				.upVoteBg {
 					color:#fff;
 				}
 			}
+
+			.floatL {
+				padding:0 10px 0 0;
+			}
+
 		}
+
+		.upVote {
+			padding:10px 10px 10px 10px;
+			width:45px;
+		}
+
 	}
 
 }
+
+.upVote {
+	float:left;
+	width:32px;
+	font-size:11px;
+	height:10px;
+	color:$green-color;
+	margin-left:0px;
+	line-height:5px;
+	text-align:center;
+	border:1px solid #e1e1e1 #fff #e1e1e1 #e1e1e1;
+	@include rounded(0px 0px 0px 0px);
+
+	.upVoteBg {
+		background-color:$green-color;
+		text-align:center;
+		padding:4px 0;
+		line-height:18px;
+		width:30px;
+		display:block;
+		margin:5px auto 0 auto;
+		color:#9ec9cf;
+		@include rounded;
+	}
+
+	&:hover .upVoteBg {
+		background-color:$dark-color;
+	}
+
+}
+
 
 /** pagination **/
 .pagination {

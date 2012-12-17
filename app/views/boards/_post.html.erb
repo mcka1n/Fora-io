@@ -1,15 +1,18 @@
-<ul class="threadList">
 	<li>
-		Total votes # <%= post.votes_for %>
-		<%= link_to('Vote 1UP', vote_up_post_path(post), :method => :post) %> 
-		<%= link_to post do %>
+		
 
-    		<span class="id"><%= post.id %></span>
-			<span class="left"><span class="title"><%= post.body %></span><span class="author"><strong>Created by:</strong> <%= post.author_name %></span></span>
-			<span class="right"><span><strong>Replies:</strong> (<%= Post.find(post.id).comments.count %>)</span><span><strong>Last update:</strong> designblooz - <% from_time = Time.now %><%= distance_of_time_in_words(post.created_at, from_time) %> ago</span></span>
+		<%= link_to(vote_up_post_path(post), :method => :post, :class => "upVote") do %>
+			&#9650;<br />
+			<span class="upVoteBg"><%=post.votes_for%></span>
+		<% end %>
+
+		<%= link_to post, :class => "postLink" do %>
+
+    		
+			<span class="left"><span class="title"><%= post.title %></span><span class="floatL"><strong>Replies:</strong> (<%= Post.find(post.id).comments.count %>)</span><span class="floatL"><strong>Last update:</strong> designblooz - <% from_time = Time.now %><%= distance_of_time_in_words(post.created_at, from_time) %> ago</span></span>
+			<span class="right"></span>
 			<span class="clear"></span>
   		<% end %>
 
 	</li>
-</ul>
 

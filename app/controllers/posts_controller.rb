@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
   def show
   	@post = Post.find(params[:id])
+    @board = Board.find(@post.board_id)
   	
     @comment = Comment.new
     @comment.post_id = @post.id
