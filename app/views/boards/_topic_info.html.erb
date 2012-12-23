@@ -6,8 +6,11 @@
  %></li>
 	  <li class="follow">
 	  	
-	  	<%= link_to "Follow Up", follow_up_board_path(@board), :method => :post,:class => "btn btn-white" %>
-	  	<%= link_to "Follow Down", follow_down_board_path(@board), :method => :post,:class => "btn btn-white" %>
+	  	<% if @is_following_up %>
+	  		<%= link_to "Follow Down", follow_down_board_path(@board), :method => :post,:class => "btn btn-white" %>
+	  	<% else %>
+	  		<%= link_to "Follow Up", follow_up_board_path(@board), :method => :post,:class => "btn btn-white" %>
+	  	<% end %>
 	  </li>
 	</ul>
 </div>	

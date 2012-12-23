@@ -12,6 +12,8 @@ class BoardsController < ApplicationController
   	@post = Post.new
 	  @post.board_id = @board.id
 
+    @is_following_up = is_following_up(params[:id])
+
   end
 
   def new
@@ -101,6 +103,15 @@ class BoardsController < ApplicationController
     else
       flash[:message] = "Oops! You are NOT following '#{@board.title}' !"
       redirect_to board_path(@board)
+    end
+  end
+
+  def is_following_up(params)
+    @found = Follow.find(:all, :conditions => { :user_id => current_user.id, :board_id => params, :status => 1 })
+    if @found.any?
+      true
+    else
+      false
     end
   end
 

@@ -28,6 +28,7 @@ Fora::Application.routes.draw do
     member do
       post :follow_up
       post :follow_down
+      post :is_following_up
     end
   end
 
