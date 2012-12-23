@@ -14,4 +14,5 @@ class User < ActiveRecord::Base
   gravtastic :email
 
   acts_as_voter
+  has_many :follows
 end

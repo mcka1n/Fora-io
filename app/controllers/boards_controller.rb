@@ -62,5 +62,22 @@ class BoardsController < ApplicationController
     @topic = Board.find(params[:id])
   end
 
+  def follow_up
+    #raise params.inspect # We use it to debug what's coming from the form (view)
+    @board = Board.find(params[:id])
+    if Follow.find(:all, :conditions => { :user_id => current_user.id, :board_id => params[:id] }).any?
+      flash[:message] = "You are already following '#{@board.title}'  !"
+      redirect_to board_path(@board)
+    else
+      @follow = Follow.new
+      @follow.user_id = current_user.id
+      @follow.board_id = params[:id]
+      @follow.status = 1
+      @follow.save
+      flash[:message] = "Now you are following '#{@board.title}' ;) !"
+      redirect_to board_path(@board)
+    end
+  end
+
 
 end
