@@ -5,8 +5,9 @@
 	  <li class="edit_delete"><%= link_to "Edit", edit_board_path(@board), :class => "btn" %><%= link_to "Delete", board_path(@board), :class => "btn", :method => :delete, :confirm => "Really? Do you want to delete the board?"
  %></li>
 	  <li class="follow">
-	  	<a href="#" class="btn btn-white">Follow</a>
-	  	<%= link_to "Follow Up", follow_up_board_path(@board), :method => :post,:class => "btn" %>
+	  	
+	  	<%= link_to "Follow Up", follow_up_board_path(@board), :method => :post,:class => "btn btn-white" %>
+	  	<%= link_to "Follow Down", follow_down_board_path(@board), :method => :post,:class => "btn btn-white" %>
 	  </li>
 	</ul>
 </div>	

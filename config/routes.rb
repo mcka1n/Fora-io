@@ -27,6 +27,7 @@ Fora::Application.routes.draw do
   resources :boards do
     member do
       post :follow_up
+      post :follow_down
     end
   end
 

@@ -65,10 +65,19 @@ class BoardsController < ApplicationController
   def follow_up
     #raise params.inspect # We use it to debug what's coming from the form (view)
     @board = Board.find(params[:id])
-    if Follow.find(:all, :conditions => { :user_id => current_user.id, :board_id => params[:id] }).any?
-      flash[:message] = "You are already following '#{@board.title}'  !"
+    @found = Follow.find(:all, :conditions => { :user_id => current_user.id, :board_id => params[:id] })
+    if @found.any?
+      if @found[0].status == 0
+        #update follow status to 1
+        @found[0].status = 1
+        @found[0].save
+        flash[:message] = "Sweet! You are following '#{@board.title}' again !"
+      else
+        flash[:message] = "You are already following '#{@board.title}'  !"
+      end  
       redirect_to board_path(@board)
     else
+      #create a new follow
       @follow = Follow.new
       @follow.user_id = current_user.id
       @follow.board_id = params[:id]
@@ -79,5 +88,20 @@ class BoardsController < ApplicationController
     end
   end
 
+
+  def follow_down
+    #Follow down 'will not' delete the 'follow', it will just change the status (from 1 to 0)
+    @board = Board.find(params[:id])
+    @found = Follow.find(:all, :conditions => { :user_id => current_user.id, :board_id => params[:id] })
+    if @found.any?
+      @found[0].status = 0
+      @found[0].save
+      flash[:message] = "You just left '#{@board.title}'  !"
+      redirect_to board_path(@board)
+    else
+      flash[:message] = "Oops! You are NOT following '#{@board.title}' !"
+      redirect_to board_path(@board)
+    end
+  end
 
 end
