@@ -13,7 +13,7 @@ class BoardsController < ApplicationController
 	  @post.board_id = @board.id
 
     @is_following_up = is_following_up(params[:id])
-
+    @board_members = board_member_amount(params[:id])
   end
 
   def new
@@ -113,6 +113,11 @@ class BoardsController < ApplicationController
     else
       false
     end
+  end
+
+
+  def board_member_amount(params)
+    @found = Follow.where(:board_id => params, :status => 1).count
   end
 
 end
