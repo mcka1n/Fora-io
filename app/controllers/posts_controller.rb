@@ -16,9 +16,14 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
     @board = Board.find(@post.board_id)
-  	
+    # ----
+    # These are model (Board) functions. 
+    @is_following_up = @board.is_following_up(@post.board_id, current_user.id)
+    @board_members = @board.board_member_amount(@post.board_id)
+  	# ----
     @comment = Comment.new
     @comment.post_id = @post.id
+
   end
 
   def vote_up
