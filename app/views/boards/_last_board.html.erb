@@ -1,0 +1,11 @@
+<ul>
+ <% @boardsListLast.each do |board| %>
+
+  <li>
+   <%= link_to '#'+board.title, board_path(board) %> | <%= board_member_amount(board.id) %> Members
+   
+  </li> 
+
+ <% end %>
+
+</ul>

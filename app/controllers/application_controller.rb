@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
 
   def sidebar
   	@boardsList = Board.all
+    @boardsListLast = Board.find(:all, :limit => 10).reverse
   end
 
 end
