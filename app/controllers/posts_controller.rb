@@ -23,7 +23,9 @@ class PostsController < ApplicationController
   	# ----
     @comment = Comment.new
     @comment.post_id = @post.id
-
+    # ----
+    @reply = Reply.new
+    
   end
 
   def vote_up

@@ -22,8 +22,6 @@ Fora::Application.routes.draw do
     end
   end
   #added by edwin | Dec 22, 2012 - 3:52 PM
-  #get 'tags/:tag', to: 'article#index', as: :tag
-  #get 'follows/:follow', to: 'follow#follow_up', as: :follow
   resources :boards do
     member do
       post :follow_up
@@ -31,6 +29,8 @@ Fora::Application.routes.draw do
       post :is_following_up
     end
   end
+  #added by edwin | Dec 27, 2012 - 11:05 PM
+  resources :replies
 
 
   # The priority is based upon order of creation:
