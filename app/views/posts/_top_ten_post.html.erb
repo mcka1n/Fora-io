@@ -1,9 +1,13 @@
 <ul>
+	
  <% @postsListLast.each do |post| %>
 
   <li>
    <% board = Board.find(post.board_id) %>
-   <%= link_to '@'+board.title, board_path(board) %> /  
+   <% followingBoard = Follow.find(:all, :conditions => {:user_id => current_user.id, :board_id => board.id, 
+   	:status => 1}) %>
+   <% if !followingBoard[0].nil? %>
+   	<%= link_to '@'+board.title, board_path(board) %> /  
 
 
    	<% if !post.title.nil? %>
@@ -13,9 +17,10 @@
 	<br>
 	<%= board_member_amount(post.board_id) %> Members
    	<br>
-   
+   <% end %> 
   </li> 
 
  <% end %>
+
 
 </ul>
