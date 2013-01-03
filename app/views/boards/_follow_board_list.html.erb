@@ -1,4 +1,7 @@
 <ul>
+ 
+<% if !@followedByUser.nil? %>
+	
  <% @followedByUser.each do |follow| %>
 
   <li>
@@ -8,5 +11,6 @@
   </li> 
 
  <% end %>
+<% end %>
 
 </ul>
