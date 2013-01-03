@@ -1,8 +1,8 @@
 <ul>
- <% @boardsListLast.each do |board| %>
+ <% @followedByUser.each do |follow| %>
 
   <li>
-  
+   <% board = Board.find(follow.board_id) %>
    <%= link_to '#'+board.title, board_path(board) %> | <%= board_member_amount(board.id) %> Members
    
   </li> 

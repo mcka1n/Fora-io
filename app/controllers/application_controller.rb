@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   def sidebar
   	@boardsList = Board.all
     @boardsListLast = Board.find(:all, :limit => 10).reverse
+    @postsListLast = Post.tally({:at_least => 1, :at_most => 10000, :limit => 10, :order => 'vote_count desc'})
   end
 
 end

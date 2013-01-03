@@ -1,0 +1,21 @@
+<ul>
+ <% @postsListLast.each do |post| %>
+
+  <li>
+   <% board = Board.find(post.board_id) %>
+   <%= link_to '@'+board.title, board_path(board) %> /  
+
+
+   	<% if !post.title.nil? %>
+   		<%= link_to post.title, post_path(post) %>
+	<% end %>
+
+	<br>
+	<%= board_member_amount(post.board_id) %> Members
+   	<br>
+   
+  </li> 
+
+ <% end %>
+
+</ul>
