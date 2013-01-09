@@ -22,12 +22,19 @@ class BoardsController < ApplicationController
   end
 
   def create
-	#raise params.inspect	# We use it to debug what's coming from the form (view)
   	@board = Board.new
     @board.user_id = current_user.id
   	@board.title = params[:board][:title]
   	@board.description = params[:board][:description]
   	@board.save
+
+    # ------ Auto Follow 
+    @follow = Follow.new
+    @follow.user_id = current_user.id
+    @follow.board_id = @board.id
+    @follow.status = 1
+    @follow.save
+
     flash[:message] = "Board '#{@board.title}' created!"
   	redirect_to board_path(@board)
   end
