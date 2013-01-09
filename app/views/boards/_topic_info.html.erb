@@ -2,10 +2,14 @@
 	<ul>
 	  <li><h3>#<%= @board.title %></h3></li>
 	  <li><h5> <%= @board_members %> Members</h5></li>
-	  <li class="edit_delete"><%= link_to "Edit", edit_board_path(@board), :class => "btn" %><%= link_to "Delete", board_path(@board), :class => "btn", :method => :delete, :confirm => "Really? Do you want to delete the board?"
- %></li>
-	  <li class="follow">
+	  <% if @board.user_id == current_user.id %>
+	  <li class="edit_delete">
+	  	<%= link_to "Edit", edit_board_path(@board), :class => "btn" %>
 	  	
+	  </li>
+	  <% end %>
+
+	  <li class="follow">
 	  	<% if @is_following_up %>
 	  		<%= link_to "Unfollow", follow_down_board_path(@board), :method => :post,:class => "btn btn-white" %>
 	  	<% else %>
