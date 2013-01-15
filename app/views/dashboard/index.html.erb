@@ -2,6 +2,7 @@
 
 <h2> <%= User.find(current_user.id).username %> You are following (<%= @followedByUser.count %>) Boards</h2>
 
+
 <%= render :partial => "boards/follow_board_list" %> 
 <br>
 <h3>Top 10 - Threads on Fora</h3>

@@ -12,6 +12,7 @@ gem 'gravtastic'
 gem 'thumbs_up'
 
 # for test and development purposes
+
 group :development, :test do
   gem 'sqlite3'
 end
