@@ -1,6 +1,6 @@
 <h1>  Welcome to your Dashboard.  </h1>
 
-<h2> You are following (<%= @followedByUser.count %>) Boards</h2>
+<h2> <%= User.find(current_user.id).username %> You are following (<%= @followedByUser.count %>) Boards</h2>
 
 <%= render :partial => "boards/follow_board_list" %> 
 <br>
