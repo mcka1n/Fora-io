@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-        username == "fora" && password == "craigslistkiller"
+        username == "dev" && password == "foraandtheoctocat"
     end
     warden.custom_failure! if performed?
   end
