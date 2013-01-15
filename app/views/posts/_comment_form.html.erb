@@ -1,0 +1,24 @@
+
+
+
+<%= form_for @comment do |f| %>
+  <%= f.hidden_field :post_id %>
+  <p>
+    <div class="postEditor">
+       <%= f.text_area :body, :id => "markItUp2" %>
+      <button class="btn floatR">Submit</button>      
+    </div>    
+  </p>
+<% end %>
+
+
+<script type="text/javascript">
+$(function() {
+  // Add markItUp! to your textarea in one line
+  // $('textarea').markItUp( { Settings }, { OptionalExtraSettings } );
+  $('#markItUp2').markItUp(myMarkdownSettings);
+
+
+
+});
+</script>

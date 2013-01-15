@@ -1,0 +1,13 @@
+<p class="topicDescription"><%= @board.description %></p>
+
+
+<!--<%= link_to "<< Back to boards List", boards_path %>-->
+	
+
+<h3 style="padding:15px">Posts (<%= @board.posts.count %>)</h3>
+
+<ul class="threadList">
+
+<%= render :partial => 'post', :collection => @board.posts.reverse %>
+
+</ul>

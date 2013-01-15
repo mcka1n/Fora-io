@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fora</title>  
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link rel="stylesheet" type="text/css" href="/markitup/skins/simple/style.css">
+  <link rel="stylesheet" type="text/css" href="/markitup/sets/default/style.css">
+  <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src="/markitup/jquery.markitup.js"></script>
+  <script type="text/javascript" src="/markitup/sets/default/set.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <!-- logo -->
+    <ul>
+      <li class="logo"><a href="/"><img src="/assets/blank.gif" alt="Fora.io" height="50" /></a></li>
+      <li class="createRoom"><%= link_to "Create Room ", new_board_path, :class=> 'btn btn-big' %></li>
+      <li class="searchTopic"><input type="text" class="textInput" placeholder="Search topic by #hashtag" /></li>
+    </ul>
+
+    <nav>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+
+  <section class="leftSideBar">
+
+
+    <% if user_signed_in? %>
+
+    <!-- profile -->
+    <div class="profile">
+      <figure>
+        <img src="<%= current_user.gravatar_url(:rating => 'R', :secure => true, :size =>48) %>" />
+      </figure>
+      <ul>
+        <li><h5><%= current_user.username %></h5></li>
+        <li><a href="#">My account</a></il>
+        <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+
+    <!-- dashboard/following -->
+    <nav>
+      <ul>
+        <li class="dashboard"><a href="/dashboard">Dashboard</a></li>
+        <li><h5>Following</h5>
+          <!-- Following room list -->
+          <%= render :partial => "boards/follow_board_list" %>
+        </li>
+        
+      </ul>
+    </nav>      
+                
+      <% else %>
+    <div class="signin">
+      <h5>Sign In</h5>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <%= f.email_field :email, :class => "textInput", :placeholder => "E-mail" %>
+
+        <%= f.password_field :password, :class => "textInput", :placeholder => "Password" %>
+
+        <% if devise_mapping.rememberable? -%>
+          <div style="font-size:12px;padding:5px 0 5px 0;line-height:20px;color:#739094;font-family:'MuseoSlab';">
+            <%= f.check_box :remember_me %> <%= f.label :remember_me %> <br />
+          </div>
+        <% end -%>
+
+        <%= f.submit "Sign in", :class => "btn btn-white" %>
+
+        <p style="padding-top:5px;"><%= render "devise/shared/links" %> </p>
+
+      <% end %>      
+      <div class="clear" style="height:40px;"></div>
+
+      <h5>Are you new?</h5>
+
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <%= f.email_field :email, :class => "textInput", :placeholder => "E-mail" %>
+
+        <%= f.password_field :password, :class => "textInput", :placeholder => "Password" %>
+
+        <%= f.password_field :password_confirmation, :class => "textInput", :placeholder => "Confirm Password" %>
+
+        <div><%= f.submit "Sign up", :class => "btn btn-white" %></div>
+      <% end %>
+
+    </div>
+
+     
+      <% end %>
+
+
+  </section>
+
+  <section class="rightFluid <% if controller?("dashboard") && action?("index", "show") %> dashboardBox<% end %>">
+
+    <% if (controller?("boards") && action?("show")) || (controller?("posts") && action?("show")) %>
+    <div class="top">
+      <!-- topic info -->
+      
+      <%= render :partial => "boards/topic_info" %>    
+
+
+    </div>
+    <div class="clear"></div>
+
+
+    <div class="threadSideBar">
+      <!-- right side bar -->
+      <div class="rightSideBar">
+        <div class="sideContent">
+          <h4>Topic Suggestions</h4>
+          <ul>
+            <li><a href="#">#ios</a></li>
+            <li><a href="#">#iphone</a></li>
+            <li><a href="#">#ipad</a></li>
+            <li><a href="#">#macbook</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <!-- thread list -->
+      <div class="content">
+       
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+
+      <%= yield %>
+      </div>
+    </div>
+
+
+
+    <% else %>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+
+      <%= yield %>   
+    <% end %>
+
+  </section>      
+
+<% if (controller?("boards") && action?("show")) || (controller?("posts") && action?("show")) %>
+
+  <div class="newThreadContent" style="display:none;">
+    <div class="newThreadBox" style="display:none;">
+      <%= render :partial => 'boards/post_form' %>
+    </div>
+  </div>
+
+
+
+
+<script type="text/javascript">
+$(function() {
+  // Add markItUp! to your textarea in one line
+  // $('textarea').markItUp( { Settings }, { OptionalExtraSettings } );
+  $('#markItUp').markItUp(myMarkdownSettings);
+
+
+
+  // You can add content from anywhere in your page
+  // $.markItUp( { Settings } );  
+  $('.add').click(function() {
+    $('#markItUp').markItUp('insert',
+      {   openWith:'<opening tag>',
+        closeWith:'<\/closing tag>',
+        placeholder: "New content"
+      }
+    );
+    return false;
+  });
+  
+  // And you can add/remove markItUp! whenever you want
+  // $(textarea).markItUpRemove();
+  $('.toggle').click(function() {
+    if ($("#markItUp .markItUpEditor").length === 1) {
+      $("#markItUp").markItUp('remove');
+      $("span", this).text("get markItUp! back");
+    } else {
+      $('#markItUp').markItUp(mySettings);
+      $("span", this).text("remove markItUp!");
+    }
+    return false;
+  });
+});
+</script>
+
+<% end %>
+
+</body>
+</html>

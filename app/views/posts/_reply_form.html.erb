@@ -1,0 +1,19 @@
+
+
+
+<%= form_for @reply do |f| %>
+  <%= f.hidden_field :comment_id, :value => comment_id %>
+
+  
+  <p>
+    <br>
+    ------------------------
+    <br>
+    >> Reply:
+    <div class="postEditor">
+       <%= f.text_area :body %>
+      <button>Submit</button>      
+    </div>    
+  </p>
+<% end %>
+

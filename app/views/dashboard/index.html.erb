@@ -1,0 +1,12 @@
+<h1>  Welcome to your Dashboard.  </h1>
+
+<h2> You are following (<%= @followedByUser.count %>) Boards</h2>
+
+<%= render :partial => "boards/follow_board_list" %> 
+<br>
+<h3>Top 10 - Threads on Fora</h3>
+
+<%= render :partial => "posts/top_ten_post" %> 
+<br>
+<h2> Controls </h2>
+<%= link_to ":: Create a new room: ", new_board_path %> || <%= link_to ":: Go to the rooms", boards_path %> 

@@ -1,0 +1,34 @@
+
+
+
+<!--<%= link_to "<< Back to posts List", boards_path %>-->
+
+				<!-- thread detail -->
+				<div class="threadDetail">
+					<%= link_to(vote_up_post_path(@post), :method => :post, :class => "upVote") do %>
+						&#9650;<br />
+						<span class="upVoteBg"><%=@post.votes_for%></span>
+					<% end %>	
+					<div style="margin-left:45px;">				
+						<h3><%= @post.title %></h3>
+						<h5>Created by: <%= @post.author_name %></h5>
+					</div>
+					<div class="description">
+						<%= @post.body %>
+					</div>
+				</div>
+
+
+
+				<%= render 'comment_form' %>
+
+				<div class="comment">
+					<ul>
+					<%= render :partial => 'comment', :collection => @post.comments %>
+
+
+					</ul>
+				</div>
+
+
+

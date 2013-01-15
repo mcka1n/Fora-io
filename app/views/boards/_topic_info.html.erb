@@ -1,0 +1,25 @@
+<div class="topicInfo">
+	<ul>
+	  <li><h3>#<%= @board.title %></h3></li>
+	  <li><h5> <%= @board_members %> Members</h5></li>
+	  <% if @board.user_id == current_user.id %>
+	  <li class="edit_delete">
+	  	<%= link_to "Edit", edit_board_path(@board), :class => "btn" %>
+	  	
+	  </li>
+	  <% end %>
+
+	  <li class="follow">
+	  	<% if @is_following_up %>
+	  		<%= link_to "Unfollow", follow_down_board_path(@board), :method => :post,:class => "btn btn-white" %>
+	  	<% else %>
+	  		<%= link_to "Follow Up", follow_up_board_path(@board), :method => :post,:class => "btn btn-white" %>
+	  	<% end %>
+	  </li>
+	</ul>
+</div>	
+<!-- new thread -->
+<div class="newThread">
+	<button id="newThreadBtn" class="btn btn-big btn-white">+ New Thread</button>
+</div>
+<div class="clear"></div>
