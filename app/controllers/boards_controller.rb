@@ -132,7 +132,10 @@ class BoardsController < ApplicationController
 
 
   def trending
-    @trending = Post.tally.where('board_id = ?', params[:id]).having('vote_count < 10')
+    #just for MySQL
+    #@trending = Post.tally.where('board_id = ?', params[:id]).having('vote_count < 10')
+    #For PostgreSQL
+    @trending = Post.tally.where('board_id = ?', params[:id]).having('COUNT(votes.id) < 10')
     @board = Board.find(params[:id])
     @is_following_up = is_following_up(params[:id])
     @board_members = board_member_amount(params[:id])
