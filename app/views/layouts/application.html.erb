@@ -105,7 +105,7 @@
 
   <section class="rightFluid <% if controller?("dashboard") && action?("index", "show") %> dashboardBox<% end %>">
 
-    <% if (controller?("boards") && action?("show")) || (controller?("posts") && action?("show")) %>
+    <% if (controller?("boards") && action?("show")) || (controller?("boards") && action?("trending")) || (controller?("posts") && action?("show")) %>
     <div class="top">
       <!-- topic info -->
       

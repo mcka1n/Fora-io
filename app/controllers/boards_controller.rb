@@ -14,6 +14,8 @@ class BoardsController < ApplicationController
 
     @is_following_up = is_following_up(params[:id])
     @board_members = board_member_amount(params[:id])
+
+    
   end
 
   def new
@@ -64,6 +66,7 @@ class BoardsController < ApplicationController
 
   def list
     @boardsList = Board.all
+    
     render 'list'
   end
 
@@ -125,6 +128,15 @@ class BoardsController < ApplicationController
 
   def board_member_amount(params)
     @found = Follow.where(:board_id => params, :status => 1).count
+  end
+
+
+  def trending
+    @trending = Post.tally.where('board_id = ?', params[:id]).having('vote_count < 10')
+    @board = Board.find(params[:id])
+    @is_following_up = is_following_up(params[:id])
+    @board_members = board_member_amount(params[:id])
+    render 'trending'
   end
 
 end

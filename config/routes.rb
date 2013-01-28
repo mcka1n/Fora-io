@@ -27,6 +27,8 @@ Fora::Application.routes.draw do
       post :follow_up
       post :follow_down
       post :is_following_up
+      post :trending
+      get  :trending
     end
   end
   #added by edwin | Dec 27, 2012 - 11:05 PM

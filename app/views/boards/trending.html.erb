@@ -1,0 +1,14 @@
+<h2> Trending threads </h2>
+
+<ul>
+ <% @trending.each do |post| %>
+
+   <% if !post.title.nil? %>
+   	<li>
+   		<%= link_to '#'+post.title, post_path(post) %>
+  	</li> 
+   <% end %>
+
+ <% end %>
+
+</ul>
