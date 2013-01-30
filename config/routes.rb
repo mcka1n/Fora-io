@@ -29,6 +29,10 @@ Fora::Application.routes.draw do
       post :is_following_up
       post :trending
       get  :trending
+      post :new_thread_list
+      get  :new_thread_list
+      post :popular
+      get  :popular
     end
   end
   #added by edwin | Dec 27, 2012 - 11:05 PM

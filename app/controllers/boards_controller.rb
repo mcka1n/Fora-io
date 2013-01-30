@@ -142,4 +142,22 @@ class BoardsController < ApplicationController
     render 'trending'
   end
 
+
+  def new_thread_list
+    @thread = Post.find(:all, :conditions => {:board_id => params[:id]}, :order => "created_at DESC")
+    
+    @is_following_up = is_following_up(params[:id])
+    @board_members = board_member_amount(params[:id])
+    render 'new_thread_list'
+  end
+  
+  def popular
+    @trending = Post.tally.where('board_id = ?', params[:id]).having('COUNT(votes.id) < 10')
+    @board = Board.find(params[:id])
+    @is_following_up = is_following_up(params[:id])
+    @board_members = board_member_amount(params[:id])
+    render 'trending'
+  end
+
+
 end

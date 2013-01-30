@@ -1,0 +1,15 @@
+<h2> New threads</h2>
+
+<ul>
+ <% @thread.each do |post| %>
+
+   <% if !post.title.nil? %>
+   	<li>
+   		<%= link_to '#'+post.title, post_path(post) %> |
+   		<% from_time = Time.now %><%= distance_of_time_in_words(post.created_at, from_time) %> ago
+  	</li> 
+   <% end %>
+
+ <% end %>
+
+</ul>
