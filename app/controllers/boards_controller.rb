@@ -152,6 +152,8 @@ class BoardsController < ApplicationController
   end
   
   def popular
+    #postsboard1 = Post.find(:all, :select => 'id',:conditions => {:board_id => '1'}).map(&:id)
+    #Comment.find(postsboard1)
     @trending = Post.tally.where('board_id = ?', params[:id]).having('COUNT(votes.id) < 10')
     @board = Board.find(params[:id])
     @is_following_up = is_following_up(params[:id])
