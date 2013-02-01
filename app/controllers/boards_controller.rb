@@ -152,9 +152,6 @@ class BoardsController < ApplicationController
   end
   
   def popular
-    #postsboard1 = Post.find(:all, :select => 'id',:conditions => {:board_id => '1'}).map(&:id)
-    #Comment.find(postsboard1)
-    #Final one:
     postsOnBoard = Post.find(:all, :select => 'id',:conditions => {:board_id => params[:id]}).map(&:id)
     @commentAmountPerPost = Comment.count(:all,:conditions => ['post_id in (?)', postsOnBoard], :group => 'post_id', :order => 'count_all DESC')
     mostCommentedPosts = Comment.find(
