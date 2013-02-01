@@ -1,0 +1,14 @@
+<h2> Popular threads </h2>
+
+<ul>
+ <% @popular.each do |post| %>
+
+   <% if !post.title.nil? %>
+   	<li>
+   		<%= link_to '#'+post.title, post_path(post) %> | Comments ( <%= @commentAmountPerPost[post.id] %> )
+  	</li> 
+   <% end %>
+
+ <% end %>
+
+</ul>

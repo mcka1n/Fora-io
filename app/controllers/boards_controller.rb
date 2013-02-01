@@ -154,11 +154,22 @@ class BoardsController < ApplicationController
   def popular
     #postsboard1 = Post.find(:all, :select => 'id',:conditions => {:board_id => '1'}).map(&:id)
     #Comment.find(postsboard1)
-    @trending = Post.tally.where('board_id = ?', params[:id]).having('COUNT(votes.id) < 10')
+    #Final one:
+    postsOnBoard = Post.find(:all, :select => 'id',:conditions => {:board_id => params[:id]}).map(&:id)
+    @commentAmountPerPost = Comment.count(:all,:conditions => ['post_id in (?)', postsOnBoard], :group => 'post_id', :order => 'count_all DESC')
+    mostCommentedPosts = Comment.find(
+    :all, 
+    :select => 'count(*) count, post_id', 
+    :group => 'post_id', 
+    :conditions => ['post_id in (?)', postsOnBoard], 
+    :order => 'count DESC').map(&:post_id)
+    @popular = Post.find(:all,:conditions => ['id in (?)', mostCommentedPosts], :order => 'created_at')
+
+    
     @board = Board.find(params[:id])
     @is_following_up = is_following_up(params[:id])
     @board_members = board_member_amount(params[:id])
-    render 'trending'
+    render 'popular'
   end
 
 
