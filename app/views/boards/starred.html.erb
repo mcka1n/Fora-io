@@ -1,0 +1,14 @@
+<h2> Starred threads by <%= User.find(current_user.id).username %> </h2>
+
+<ul>
+ <% @starred.each do |post| %>
+
+   <% if !post.title.nil? %>
+   	<li>
+   		<%= link_to '#'+post.title, post_path(post) %> | Starred ( <%= @starredAmountPerPost[post.id] %> ) times
+  	</li> 
+   <% end %>
+
+ <% end %>
+
+</ul>

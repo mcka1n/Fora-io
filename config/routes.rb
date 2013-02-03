@@ -37,6 +37,8 @@ Fora::Application.routes.draw do
       get  :new_thread_list
       post :popular
       get  :popular
+      post :starred
+      get  :starred
     end
   end
   #added by edwin | Dec 27, 2012 - 11:05 PM

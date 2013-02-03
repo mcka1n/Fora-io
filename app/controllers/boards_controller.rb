@@ -169,5 +169,22 @@ class BoardsController < ApplicationController
     render 'popular'
   end
 
+  def starred
+    postsOnBoard = Post.find(:all, :select => 'id',:conditions => {:board_id => params[:id]}).map(&:id)
+    @starredAmountPerPost = Star.count(:all,:conditions => ['post_id in (?)', postsOnBoard], :group => 'post_id', :order => 'count_all DESC')
+   
+    starredPosts = Star.find(
+    :all, 
+    :select => 'post_id', 
+    :group => 'post_id', 
+    :conditions => ['post_id in (?)', postsOnBoard], 
+    :order => 'post_id DESC').map(&:post_id)
+    @starred = Post.find(:all,:conditions => ['id in (?)', starredPosts], :order => 'created_at')
+
+    @board = Board.find(params[:id])
+    @is_following_up = is_following_up(params[:id])
+    @board_members = board_member_amount(params[:id])
+    render 'starred'
+  end
 
 end
