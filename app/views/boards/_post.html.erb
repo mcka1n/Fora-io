@@ -6,6 +6,12 @@
 			<span class="upVoteBg"><%=post.votes_for%></span>
 		<% end %>
 
+
+		<%= link_to(star_post_path(post), :method => :post, :class => "upVote") do %>
+							&#9650;<br />
+							<span class="upVoteBg"><%= Post.find(post.id).stars.count %></span>
+		<% end %>
+
 		<%= link_to post, :class => "postLink" do %>
 
     		

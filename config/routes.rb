@@ -19,6 +19,10 @@ Fora::Application.routes.draw do
   resources :posts do
     member do
       post :vote_up
+      post :star
+      post :unstar
+      post :is_star
+      post :stars_for
     end
   end
   #added by edwin | Dec 22, 2012 - 3:52 PM
@@ -37,6 +41,8 @@ Fora::Application.routes.draw do
   end
   #added by edwin | Dec 27, 2012 - 11:05 PM
   resources :replies
+  #added by edwin | Feb 03, 2013 - 1:35 AM
+  resources :stars
 
 
   # The priority is based upon order of creation:
