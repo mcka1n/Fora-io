@@ -6,6 +6,8 @@
 <%= link_to "New", new_thread_list_board_path(@board), :method => :post,:class => "btn btn-white" %>
 
 <%= link_to "Popular", popular_board_path(@board), :method => :post,:class => "btn btn-white" %>
+
+<%= link_to "Starred", starred_board_path(@board), :method => :post,:class => "btn btn-white" %>
 <br>
 <!--<%= link_to "<< Back to boards List", boards_path %>-->
 	
@@ -15,5 +17,6 @@
 <ul class="threadList">
 
 <%= render :partial => 'post', :collection => @board.posts.reverse %>
+
 
 </ul>

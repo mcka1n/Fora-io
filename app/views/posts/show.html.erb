@@ -8,9 +8,21 @@
 					<%= link_to(vote_up_post_path(@post), :method => :post, :class => "upVote") do %>
 						&#9650;<br />
 						<span class="upVoteBg"><%=@post.votes_for%></span>
-					<% end %>	
-					<div style="margin-left:45px;">				
+					<% end %>
+
+				
+				
+
+
+					<div style="margin-left:45px;">		
+
 						<h3><%= @post.title %></h3>
+						&nbsp;
+						<%= link_to(star_post_path(@post), :method => :post, :class => "upVote") do %>
+							&#9650;<br />
+							<span class="upVoteBg"><%= @stars_for %></span>
+						<% end %>
+
 						<h5>Created by: <%= @post.author_name %></h5>
 					</div>
 					<div class="description">

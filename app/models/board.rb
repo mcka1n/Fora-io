@@ -1,6 +1,7 @@
 class Board < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :posts
+  belongs_to :user
 
  def is_following_up(params, currentUser)
   @found = Follow.find(:all, :conditions => { :user_id => currentUser, :board_id => params, :status => 1 })

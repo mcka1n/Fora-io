@@ -1,10 +1,10 @@
 class BoardsController < ApplicationController
  
  before_filter :authenticate_user!
- 
- def index
-  @boards = Board.all
- end
+
+  def index
+    @boards = Board.all
+  end
 
   def show
   	@board = Board.find(params[:id])
@@ -13,14 +13,11 @@ class BoardsController < ApplicationController
 	  @post.board_id = @board.id
 
     @is_following_up = is_following_up(params[:id])
-    @board_members = board_member_amount(params[:id])
-
-    
+    @board_members = board_member_amount(params[:id])   
   end
 
   def new
   	@board = Board.new
-
   end
 
   def create
@@ -28,25 +25,28 @@ class BoardsController < ApplicationController
     @board.user_id = current_user.id
   	@board.title = params[:board][:title]
   	@board.description = params[:board][:description]
-  	@board.save
+    if @board.save
 
-    # ------ Auto Follow 
-    @follow = Follow.new
-    @follow.user_id = current_user.id
-    @follow.board_id = @board.id
-    @follow.status = 1
-    @follow.save
+      # ------ Auto Follow 
+      @follow = Follow.new
+      @follow.user_id = current_user.id
+      @follow.board_id = @board.id
+      @follow.status = 1
 
-    flash[:message] = "Board '#{@board.title}' created!"
-  	redirect_to board_path(@board)
+      if @follow.save
+        flash[:message] = "Board '#{@board.title}' created!"
+      	redirect_to board_path(@board)
+      end
+    end
   end
 
 
   def destroy
     @board = Board.find(params[:id])
-    @board.destroy
-    flash[:message] = "Board '#{@board.title}' has been destroyed!"
-    redirect_to boards_path
+    if @board.destroy
+      flash[:message] = "Board '#{@board.title}' has been destroyed!"
+      redirect_to boards_path
+    end
   end
 
   def edit
@@ -59,9 +59,10 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @board.title = params[:board][:title]
     @board.description = params[:board][:description]
-    @board.save
-    flash[:message] = "Board '#{@board.title}' Updated!"
-    redirect_to board_path(@board)
+    if @board.save
+      flash[:message] = "Board '#{@board.title}' Updated!"
+      redirect_to board_path(@board)
+    end
   end 
 
   def list
@@ -82,8 +83,9 @@ class BoardsController < ApplicationController
       if @found[0].status == 0
         #update follow status to 1
         @found[0].status = 1
-        @found[0].save
-        flash[:message] = "Sweet! You are following '#{@board.title}' again !"
+        if @found[0].save
+          flash[:message] = "Sweet! You are following '#{@board.title}' again !"
+        end
       else
         flash[:message] = "You are already following '#{@board.title}'  !"
       end  
@@ -94,9 +96,10 @@ class BoardsController < ApplicationController
       @follow.user_id = current_user.id
       @follow.board_id = params[:id]
       @follow.status = 1
-      @follow.save
-      flash[:message] = "Now you are following '#{@board.title}' ;) !"
-      redirect_to board_path(@board)
+      if @follow.save
+        flash[:message] = "Now you are following '#{@board.title}' ;) !"
+        redirect_to board_path(@board)
+      end
     end
   end
 
@@ -169,5 +172,22 @@ class BoardsController < ApplicationController
     render 'popular'
   end
 
+  def starred
+    postsOnBoard = Post.find(:all, :select => 'id',:conditions => {:board_id => params[:id]}).map(&:id)
+    @starredAmountPerPost = Star.count(:all,:conditions => ['post_id in (?)', postsOnBoard], :group => 'post_id', :order => 'count_all DESC')
+   
+    starredPosts = Star.find(
+    :all, 
+    :select => 'post_id', 
+    :group => 'post_id', 
+    :conditions => ['post_id in (?)', postsOnBoard], 
+    :order => 'post_id DESC').map(&:post_id)
+    @starred = Post.find(:all,:conditions => ['id in (?)', starredPosts], :order => 'created_at')
+
+    @board = Board.find(params[:id])
+    @is_following_up = is_following_up(params[:id])
+    @board_members = board_member_amount(params[:id])
+    render 'starred'
+  end
 
 end
